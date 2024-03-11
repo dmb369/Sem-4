@@ -42,10 +42,10 @@ for k = 1:n-1
 end
 
 % Back Substitution
-x(n) = b(n) / A(n, n);
+x(x_ind(n)) = b(n) / A(n, n);
 
 for i = n-1:-1:1
-    x(i) = (b(i) - A(i, i+1:n) * x(i+1:n)) / A(i, i);
+    x(x_ind(i), :) = (b(i) - A(i, i+1:n) * x(x_ind(i+1:n))) / A(i, i);
 end
 
 disp(x);
